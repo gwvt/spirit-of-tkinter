@@ -1,10 +1,15 @@
-7
-add custom colors
-place canvas in label frame
-create radio buttons to color circle and background
+8
+split code into modules
+select images with buttons and display
 
 Look at:
 app.py
-  4ff.
-  20ff.
-  108ff.
+
+frames/colors.py
+  * move ColorsFrame into module
+
+frames/quit.py
+
+
+settings.py
+  14ff.
