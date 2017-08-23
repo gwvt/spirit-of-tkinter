@@ -18,5 +18,6 @@ class QuitFrame(tk.Frame):
 
         self.quit_button = tk.Button(self.inner_frame, text='Turn it off',
                                      command=self.quit)
+        # set standard configuration for button
         settings.button_standard_config(self.quit_button)
         self.quit_button.grid()
