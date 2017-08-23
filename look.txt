@@ -1,17 +1,8 @@
-9
-add images directory
-select image with button and display
+10
 
 Look at:
 app.py
-  5f.
-  17ff.
-  21ff.
+  6f.
+  15ff.
 
-frames/pictures.py
-  13ff.
-  20ff.
-  30ff.
-
-images/
-  * created directory with image files
+frames/shapes.py

@@ -10,15 +10,11 @@ class PicturesFrame(tk.Frame):
 
         self.names = ['Geddy', 'Alex', 'Neil', 'Rush', 'Clear']
 
-        # iterate over list of names to generate text for button
-        # and path to image file
         for i in range(0, len(self.names)):
             self.make_button(i, self.names[i])
 
         self.select_image('Clear')
 
-    # pass select_image function to lambda with closure over path to
-    # each image file
     def select_image(self, text):
         if hasattr(self, 'image_label'):
             self.image_label.destroy()
@@ -27,8 +23,6 @@ class PicturesFrame(tk.Frame):
         image = tk.PhotoImage(file=image_path)
 
         self.image_label = tk.Label(self, image=image)
-        # re-assign image to image_label
-        # see http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
         self.image_label.image = image
         self.image_label.grid(row=0, column=0, columnspan=len(self.names))
 
