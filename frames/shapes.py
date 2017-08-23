@@ -21,20 +21,7 @@ class ShapesFrame(tk.Frame):
         self.shape_number_menu = self.make_shape_number_menu()
         self.shape_number_menu.grid(row=0, column=1)
 
-    def make_shape_number_menu(self):
-        self.shape_number_var = tk.IntVar()
-
-        shape_number_menu = tk.OptionMenu(
-            self, self.shape_number_var, 2, 4, 8)
-        self.shape_number_var.set(4)
-
-        self.shape_number_var.trace(
-            'w',
-            lambda *args: self.change_shape_number(
-                self.shape_number_var.get()))
-
-        return shape_number_menu
-
+    # change number of shapes, adjust dimensions, and redraw shapes
     def change_shape_number(self, shape_number):
         if shape_number == 2 or shape_number == 4:
             shape_width = 100
@@ -55,6 +42,27 @@ class ShapesFrame(tk.Frame):
             self.shape_features['fill'],
             self.shape_features['outline'],
             self.shape_features['coordinates_descriptor'])
+
+    # add option menu to select number of shapes
+    def make_shape_number_menu(self):
+        # create special Tkinter variable IntVar to hold value selected by
+        # option menu
+        self.shape_number_var = tk.IntVar()
+
+        # create option menu, define options, and associate IntVar
+        shape_number_menu = tk.OptionMenu(
+            self, self.shape_number_var, 2, 4, 8)
+
+        # set initial value
+        self.shape_number_var.set(4)
+
+        # trace changes in IntVar and call lambda on change
+        self.shape_number_var.trace(
+            'w',
+            lambda *args: self.change_shape_number(
+                self.shape_number_var.get()))
+
+        return shape_number_menu
 
     def set_dimensions(
         self, canvas_width, canvas_height, shape_number,
@@ -90,8 +98,6 @@ class ShapesFrame(tk.Frame):
         }
         return features
 
-
-
     def get_coordinates(self, index, descriptor):
         if descriptor is None:
             return
@@ -122,7 +128,6 @@ class ShapesFrame(tk.Frame):
 
         return coordinates[descriptor]
 
-
     def make_one_shape(self, shape, fill, outline, *args):
         name_create_function = 'create_{}'.format(shape)
         shape = getattr(self.canvas, name_create_function)(
@@ -132,7 +137,6 @@ class ShapesFrame(tk.Frame):
         )
 
         return shape
-
 
     def make_shapes(self, shape, fill, outline, coordinates_descriptor):
         for current_shape in self.current_shapes:

@@ -4,3 +4,5 @@ select number of shapes with option menu and display
 Look at:
 
 frames/shapes.py
+  24ff.
+  46ff.
