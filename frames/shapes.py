@@ -113,6 +113,8 @@ class ShapesFrame(tk.Frame):
         elif event.char == '0':
             self.make_shapes(None, None, None, None)
 
+    # add more coordinate sets for circles/ovals, squares/rectangles,
+    # and triangles
     def get_coordinates(self, index, descriptor):
         if descriptor is None:
             return
