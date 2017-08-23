@@ -1,6 +1,7 @@
-2
-call function with button
+3
+create frame and add border
+create button with frame as parent
 
 Look at:
 app.py
-  6ff.
+  10ff.

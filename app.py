@@ -4,12 +4,18 @@ app = tk.Tk()
 
 
 def print_it():
-    print('And the men who hold high places must be the ones to start.')
+    print('The world is, the world is -- love and life are deep.')
 
 
-# pass function to button with command option
-button = tk.Button(app, text='Sing it', command=print_it)
+frame = tk.Frame(app)
 
+
+frame.configure(bd=10, relief='raised')
+frame.grid()
+
+
+button = tk.Button(
+    frame, text='Sing it', command=print_it)
 button.grid()
 
 app.mainloop()
