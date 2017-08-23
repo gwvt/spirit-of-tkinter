@@ -3,7 +3,6 @@ import tkinter as tk
 from frames.colors import ColorsFrame
 from frames.quit import QuitFrame
 from frames.pictures import PicturesFrame
-# import shapes frame
 from frames.shapes import ShapesFrame
 
 
@@ -12,7 +11,6 @@ class App(tk.Tk):
         super().__init__()
         self.configure(padx=10, pady=10)
 
-        # add shapes frame
         self.shapes_frame = ShapesFrame(self)
         self.shapes_frame.grid(row=0, column=0, columnspan=2)
 

@@ -1,13 +1,6 @@
-10
-draw polygons and repeat them across canvas
+11
+select number of shapes with option menu and display
 
 Look at:
-app.py
-  6f.
-  15ff.
 
 frames/shapes.py
-  11ff.
-  60ff.
-  92ff.
-  103ff.
