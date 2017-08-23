@@ -1,6 +1,6 @@
-5
-define classes to create multiple frames and buttons
+6
+draw shape on canvas
 
 Look at:
 app.py
-  6ff.
+  5ff.
