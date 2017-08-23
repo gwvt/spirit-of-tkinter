@@ -17,7 +17,6 @@ class CrackleFrame(tk.Frame):
         self.start_button = self.make_start_button()
         self.start_button.grid(row=1, column=0)
 
-        # initialize self.crackling
         self.crackling = False
 
     def make_canvas(self):
@@ -36,8 +35,6 @@ class CrackleFrame(tk.Frame):
 
         return start_button
 
-    # create square and pass it to method to start crackling
-    # and stop crackling if self.crackling is True
     def toggle_crackling(self):
         if self.crackling is False:
             self.crackling = True
@@ -57,7 +54,6 @@ class CrackleFrame(tk.Frame):
                 fg=settings.colors['Black'])
             self.crackling = False
 
-    # move square around perimiter of larger square pattern
     def make_crackle(
             self, square, position, side_length, x_axis_changing, ascending):
         if self.crackling is False:
