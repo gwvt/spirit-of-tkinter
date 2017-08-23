@@ -1,8 +1,9 @@
 15
-animate that square
+animate the square and make it crackle
 
 Look at:
 
-app.py
-
 frames/crackle.py
+  20ff.
+  39ff.
+  60ff.
