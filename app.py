@@ -11,6 +11,7 @@ def print_it():
 frame = tk.Frame(app)
 
 # pass in options with configure method
+# with borderwidth in pixels and relief style of raised
 frame.configure(bd=10, relief='raised')
 frame.grid()
 
