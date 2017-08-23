@@ -12,6 +12,7 @@ frame = tk.Frame(app)
 frame.configure(bd=10, relief='raised')
 frame.grid()
 
+# pass lambda to command option with frame as parameter
 button = tk.Button(
     frame, text='Sing it', command=lambda: make_it_blue(frame))
 button.grid()
