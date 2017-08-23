@@ -14,7 +14,7 @@ frame.grid()
 
 # pass lambda to command option with frame as parameter
 button = tk.Button(
-    frame, text='Make it blue', command=lambda: make_it_blue(frame))
+    frame, text='Make me blue', command=lambda: make_it_blue(frame))
 button.grid()
 
 app.mainloop()
