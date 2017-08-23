@@ -1,7 +1,6 @@
-3
-create frame and add border
-create button with frame as parent
+4
+change frame background color with button
 
 Look at:
 app.py
-  10ff.
+  15ff.

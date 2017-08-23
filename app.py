@@ -3,20 +3,17 @@ import tkinter as tk
 app = tk.Tk()
 
 
-def print_it():
-    print('The world is, the world is -- love and life are deep.')
+def make_it_blue(widget):
+    widget.configure(bg='blue')
 
 
-# create a frame with app as parent
 frame = tk.Frame(app)
 
-# pass in options with configure method
 frame.configure(bd=10, relief='raised')
 frame.grid()
 
-# create button with frame as parent
 button = tk.Button(
-    frame, text='Sing it', command=print_it)
+    frame, text='Sing it', command=lambda: make_it_blue(frame))
 button.grid()
 
 app.mainloop()
