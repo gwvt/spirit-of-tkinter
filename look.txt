@@ -1,10 +1,5 @@
-0
-overview
+1
+initialize Tk() and create button
 
-This presentation will show how to build a desktop GUI with Tkinter, including how to:
-  set up a layout
-  show content: text, images, shapes
-  add styling: colors, borders
-  interact with user input:
-    button, radio button, option menu, event binding, text entry
-  add animation
+Look at:
+app.py
