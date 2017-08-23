@@ -16,6 +16,7 @@ class App(tk.Tk):
         self.shapes_frame = ShapesFrame(self)
         self.shapes_frame.grid(row=0, column=0)
 
+        # add lyrics frame
         self.lyrics_frame = LyricsFrame(self)
         self.lyrics_frame.grid(row=0, column=1)
 
