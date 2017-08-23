@@ -1,15 +1,18 @@
 8
+define class for main app
 split code into modules
-select images with buttons and display
 
 Look at:
 app.py
+  3ff.
+  8ff.
+  21ff.
 
 frames/colors.py
   * move ColorsFrame into module
 
 frames/quit.py
-
+  12ff.
 
 settings.py
   14ff.

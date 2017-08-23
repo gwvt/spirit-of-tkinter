@@ -1,9 +1,11 @@
 import tkinter as tk
 
+# import frame classes from modules
 from frames.colors import ColorsFrame
 from frames.quit import QuitFrame
 
 
+# define class for main app
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -16,6 +18,10 @@ class App(tk.Tk):
         self.quit_frame.grid(row=1, column=0)
 
 
+# instantiate main app
 app = App()
+
+# add title to window
 app.title('The Spirit of Tkinter')
+
 app.mainloop()
