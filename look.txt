@@ -1,9 +1,10 @@
-13
+14
+move shapes on canvas
 
 Look at:
 
 app.py
-  19ff.
+  25ff.
 
 frames/crackle.py
   11ff.

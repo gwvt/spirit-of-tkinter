@@ -16,13 +16,13 @@ class App(tk.Tk):
         self.shapes_frame = ShapesFrame(self)
         self.shapes_frame.grid(row=0, column=0)
 
-        # add lyrics frame
         self.lyrics_frame = LyricsFrame(self)
         self.lyrics_frame.grid(row=0, column=1)
 
         self.colors_frame = ColorsFrame(self)
         self.colors_frame.grid(row=1, column=0, rowspan=2)
 
+        # add crackle frame
         self.crackle_frame = CrackleFrame(self)
         self.crackle_frame.grid(row=1, column=1)
 
