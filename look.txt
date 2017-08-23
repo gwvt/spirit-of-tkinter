@@ -1,5 +1,5 @@
-1
-initialize Tk() and create button
+2
+call function with button
 
 Look at:
 app.py
