@@ -23,11 +23,16 @@ class App(tk.Tk):
         self.quit_frame = QuitFrame(self)
         self.quit_frame.grid(row=2, column=0, columnspan=2)
 
+        # call method to select shape with keys 0-9
+        # instance
         self.bind_events()
 
+    # bind key event to callback
     def bind_events(self):
         self.bind('<Key>', self.direct_key_events)
 
+    # call function to select shape on ShapesFrame instance
+    # and pass event if input is digit 0-9
     def direct_key_events(self, event):
         if event.char.isdigit():
             self.shapes_frame.select_shape(event)

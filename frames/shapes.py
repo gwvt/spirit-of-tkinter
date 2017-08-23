@@ -88,6 +88,7 @@ class ShapesFrame(tk.Frame):
             self.shape_features['outline'],
             self.shape_features['coordinates_descriptor'])
 
+    # destroy existing shapes, set new shape features, and draw new shapes
     def select_shape(self, event):
         if event.char == '1':
             self.make_shapes('oval', 'White', 'Black', 'outer_corners')
@@ -229,6 +230,16 @@ class ShapesFrame(tk.Frame):
 
         return coordinates[descriptor]
 
+    def make_one_shape(self, shape, fill, outline, *args):
+        name_create_function = 'create_{}'.format(shape)
+        shape = getattr(self.canvas, name_create_function)(
+            *args,
+            fill=settings.colors[fill],
+            outline=settings.colors[outline]
+        )
+
+        return shape
+
     def make_shapes(self, shape, fill, outline, coordinates_descriptor):
         for current_shape in self.current_shapes:
             self.canvas.delete(current_shape)
@@ -249,13 +260,3 @@ class ShapesFrame(tk.Frame):
                             self.get_coordinates(
                                 i, coordinates_descriptor)
                             .values())))
-
-    def make_one_shape(self, shape, fill, outline, *args):
-        name_create_function = 'create_{}'.format(shape)
-        shape = getattr(self.canvas, name_create_function)(
-            *args,
-            fill=settings.colors[fill],
-            outline=settings.colors[outline]
-        )
-
-        return shape
