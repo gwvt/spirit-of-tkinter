@@ -4,7 +4,7 @@ import tkinter as tk
 app = tk.Tk()
 
 # add button widget with text
-# make its parent app with first argument
+# make app its parent with first argument
 # return widget from constructor
 button = tk.Button(app, text='A Button')
 
