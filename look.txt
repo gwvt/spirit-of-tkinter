@@ -1,18 +1,17 @@
-8
-define class for main app
-split code into modules
+9
+add images directory
+select image with button and display
 
 Look at:
 app.py
-  3ff.
-  8ff.
+  5f.
+  17ff.
   21ff.
 
-frames/colors.py
-  * move ColorsFrame into module
+frames/pictures.py
+  13ff.
+  20ff.
+  30ff.
 
-frames/quit.py
-  12ff.
-
-settings.py
-  14ff.
+images/
+  * created directory with image files
