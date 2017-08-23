@@ -1,10 +1,12 @@
-12
-select shape to draw with key bindings
+13
+add files directory and files/lyrics.txt
+add lyrics frame
+add key bindings to navigate through lyrics
+add text entry to search lyrics
 
 Look at:
 
 app.py
-  26ff.
 
-frames/shapes.py
-  91ff.
+
+frames/lyrics.txt

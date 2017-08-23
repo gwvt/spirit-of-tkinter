@@ -88,7 +88,6 @@ class ShapesFrame(tk.Frame):
             self.shape_features['outline'],
             self.shape_features['coordinates_descriptor'])
 
-    # destroy existing shapes, set new shape features, and draw new shapes
     def select_shape(self, event):
         if event.char == '1':
             self.make_shapes('oval', 'White', 'Black', 'outer_corners')
