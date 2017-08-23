@@ -25,7 +25,7 @@ class BlueButton(tk.Button):
         # configure widget with options passed to __init__ function
         self.configure(text=text)
 
-        # and common values for all instances
+        # and static values for all instances
         self.configure(command=make_parent_blue, fg='red')
 
 
