@@ -8,14 +8,19 @@ class ShapesFrame(tk.Frame):
         super().__init__(parent)
         self.configure(padx=40)
 
+        # set dimensions for canvas_width, canvas_height, shape_number,
+        # shape_width, shape_height
         self.dimensions = self.set_dimensions(600, 200, 4, 100, 100)
 
         self.canvas = self.make_canvas()
         self.canvas.grid()
 
+        # set shape features of shape, fill, outline, and descriptor for
+        # coordinates required to draw shape
         self.shape_features = self.set_shape_features()
         self.current_shapes = []
 
+        # draw shape_number of shapes
         self.make_shapes('polygon', 'White', 'Black', 'full_isosceles_up')
 
     def set_dimensions(
@@ -52,6 +57,8 @@ class ShapesFrame(tk.Frame):
         }
         return features
 
+    # based on dimensions and coordinates descriptor, get actual coordinates
+    # required for shape
     def get_coordinates(self, index, descriptor):
         if descriptor is None:
             return
@@ -82,6 +89,18 @@ class ShapesFrame(tk.Frame):
 
         return coordinates[descriptor]
 
+    # draw one shape when called by make_shapes method
+    def make_one_shape(self, shape, fill, outline, *args):
+        name_create_function = 'create_{}'.format(shape)
+        shape = getattr(self.canvas, name_create_function)(
+            *args,
+            fill=settings.colors[fill],
+            outline=settings.colors[outline]
+        )
+
+        return shape
+
+    # iterate over shape_number of coordinates and draw shapes
     def make_shapes(self, shape, fill, outline, coordinates_descriptor):
         for current_shape in self.current_shapes:
             self.canvas.delete(current_shape)
@@ -102,13 +121,3 @@ class ShapesFrame(tk.Frame):
                             self.get_coordinates(
                                 i, coordinates_descriptor)
                             .values())))
-
-    def make_one_shape(self, shape, fill, outline, *args):
-        name_create_function = 'create_{}'.format(shape)
-        shape = getattr(self.canvas, name_create_function)(
-            *args,
-            fill=settings.colors[fill],
-            outline=settings.colors[outline]
-        )
-
-        return shape
