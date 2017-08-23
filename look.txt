@@ -6,7 +6,16 @@ add text entry to search lyrics
 
 Look at:
 
-app.py
+files/lyrics.txt
+  add directory and text file
 
+app.py
+  7f.
+  16ff.
+  34ff.
 
 frames/lyrics.txt
+  9ff.
+  43ff.
+  59ff.
+  75ff.

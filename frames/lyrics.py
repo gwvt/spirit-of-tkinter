@@ -6,8 +6,10 @@ class LyricsFrame(tk.Frame):
         super().__init__(parent)
         self.configure(padx=20, bd=5, relief='raised')
 
+        # load lyrics lines text into list
         self.lyrics = self.load_lyrics()
 
+        # add inner parent frame and text entry box
         self.search_box_frame = tk.Frame(self, width=150, height=50)
         self.search_box_frame.grid_propagate(False)
         self.search_box_frame.grid(row=0, column=0)
@@ -15,6 +17,7 @@ class LyricsFrame(tk.Frame):
         self.search_box = self.make_search_box()
         self.search_box.grid()
 
+        # add inner parent frame and message widget to display text
         self.line_message_frame = tk.Frame(self, width=250, height=50)
         self.line_message_frame.grid_propagate(False)
         self.line_message_frame.grid(row=0, column=1)
@@ -22,6 +25,7 @@ class LyricsFrame(tk.Frame):
         self.line_message = self.make_line_message()
         self.line_message.grid()
 
+        # initialize index of lyrics list and display line
         self.line_index = 0
         self.display_line()
 
@@ -36,6 +40,8 @@ class LyricsFrame(tk.Frame):
         return lyrics_list
 
     def make_search_box(self):
+        # create special Tkinter StringVar variable and associate with
+        # user input in Entry widget
         self.search_string_var = tk.StringVar(value='search lyrics')
 
         search_box = tk.Entry(
@@ -50,10 +56,12 @@ class LyricsFrame(tk.Frame):
     def display_line(self):
         self.line_message.configure(text=self.lyrics[self.line_index])
 
+    # move back or forward one line with key event left or right arrow
     def move_to_adjacent_line(self, plus_minus_one):
         self.line_index += plus_minus_one
         self.display_line()
 
+    # change value and font color of entry box based on focus in or out
     def search_box_focus_in(self, event):
         self.search_string_var.set('')
         self.search_box.configure(fg='Black')
@@ -64,6 +72,8 @@ class LyricsFrame(tk.Frame):
                     event.widget is not self.search_box)):
             self.clear_search_box()
 
+    # clear search box -- called when exiting focus or
+    # executing search function
     def clear_search_box(self):
         self.search_string_var.set('search lyrics')
         self.search_box.configure(fg='Grey')
@@ -73,6 +83,7 @@ class LyricsFrame(tk.Frame):
         self.search_result(self.search_string_var)
         self.search_box_focus_out(None)
 
+    # display line of lyrics
     def search_result(self, search_string_var):
         search_string = search_string_var.get()
         for index, line in enumerate(self.lyrics):
