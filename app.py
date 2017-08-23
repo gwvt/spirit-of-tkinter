@@ -23,6 +23,15 @@ class App(tk.Tk):
         self.quit_frame = QuitFrame(self)
         self.quit_frame.grid(row=2, column=0, columnspan=2)
 
+        self.bind_events()
+
+    def bind_events(self):
+        self.bind('<Key>', self.direct_key_events)
+
+    def direct_key_events(self, event):
+        if event.char.isdigit():
+            self.shapes_frame.select_shape(event)
+
 
 app = App()
 app.title('The Spirit of Tkinter')
