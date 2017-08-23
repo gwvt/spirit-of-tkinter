@@ -8,16 +8,16 @@ class ShapesFrame(tk.Frame):
         super().__init__(parent)
         self.configure(padx=40)
 
-        # set dimensions for canvas_width, canvas_height, shape_number,
-        # shape_width, shape_height
+        # set values for canvas_width, canvas_height, shape_number,
+        # shape_width, shape_height, all in pixels
         self.dimensions = self.set_dimensions(600, 200, 4, 100, 100)
 
         self.canvas = self.make_canvas()
         self.canvas.grid()
 
-        # set shape features of shape, fill, outline, and descriptor for
-        # coordinates required to draw shape
-        self.shape_features = self.set_shape_features()
+        # initialize shape features of shape, fill, outline, and descriptor
+        # for coordinates required to draw shape
+        self.shape_features = self.set_shape_features(None, None, None, None)
         self.current_shapes = []
 
         # draw shape_number of shapes
@@ -48,12 +48,12 @@ class ShapesFrame(tk.Frame):
 
         return canvas
 
-    def set_shape_features(self):
+    def set_shape_features(self, shape, fill, outline, coordinates_descriptor):
         features = {
-            'shape': None,
-            'fill': None,
-            'outline': None,
-            'coordinates_descriptor': None
+            'shape': shape,
+            'fill': fill,
+            'outline': outline,
+            'coordinates_descriptor': coordinates_descriptor
         }
         return features
 
@@ -105,19 +105,15 @@ class ShapesFrame(tk.Frame):
         for current_shape in self.current_shapes:
             self.canvas.delete(current_shape)
 
-        self.shape_features['shape'] = shape
-        self.shape_features['fill'] = fill
-        self.shape_features['outline'] = outline
-        self.shape_features['coordinates_descriptor'] = coordinates_descriptor
+        self.set_shape_features(shape, fill, outline, coordinates_descriptor)
 
         self.current_shapes = []
 
-        if shape is not None:
-            for i in range(0, self.dimensions['shape_number']):
-                self.current_shapes.append(
-                    self.make_one_shape(
-                        shape, fill, outline,
-                        list(
-                            self.get_coordinates(
-                                i, coordinates_descriptor)
-                            .values())))
+        for i in range(0, self.dimensions['shape_number']):
+            self.current_shapes.append(
+                self.make_one_shape(
+                    shape, fill, outline,
+                    list(
+                        self.get_coordinates(
+                            i, coordinates_descriptor)
+                        .values())))
