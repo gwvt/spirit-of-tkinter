@@ -49,7 +49,7 @@ class CrackleFrame(tk.Frame):
         return start_button
 
     def make_canvas(self):
-        canvas_side = canvas_side = (self.pattern_side + 2) * self.square_side
+        canvas_side = canvas_side = 16 * self.square_side
         canvas = tk.Canvas(self)
         canvas.configure(width=canvas_side,
                          height=canvas_side)
