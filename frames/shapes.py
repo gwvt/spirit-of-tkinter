@@ -18,6 +18,7 @@ class ShapesFrame(tk.Frame):
 
         self.make_shapes('polygon', 'White', 'Black', 'full_isosceles_up')
 
+        # add option menu
         self.shape_number_menu = self.make_shape_number_menu()
         self.shape_number_menu.grid(row=0, column=1)
 
