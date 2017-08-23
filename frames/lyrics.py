@@ -9,7 +9,7 @@ class LyricsFrame(tk.Frame):
         # load lyrics lines text into list
         self.lyrics = self.load_lyrics()
 
-        # add inner parent frame and text entry box
+        # add inner frame and text entry box
         self.search_box_frame = tk.Frame(self, width=150, height=50)
         self.search_box_frame.grid_propagate(False)
         self.search_box_frame.grid(row=0, column=0)
@@ -17,7 +17,7 @@ class LyricsFrame(tk.Frame):
         self.search_box = self.make_search_box()
         self.search_box.grid()
 
-        # add inner parent frame and message widget to display text
+        # add inner frame and message widget to display text
         self.line_message_frame = tk.Frame(self, width=250, height=50)
         self.line_message_frame.grid_propagate(False)
         self.line_message_frame.grid(row=0, column=1)
