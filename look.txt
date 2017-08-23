@@ -1,5 +1,5 @@
 09
-add images directory
+add images directory and files
 select image with button and display
 
 Look at:
