@@ -30,6 +30,7 @@ class BlueButton(tk.Button):
 
 
 frame1 = ButtonFrame(app)
+# place widget at specific location in grid
 frame1.grid(row=0, column=0)
 
 frame2 = ButtonFrame(app)

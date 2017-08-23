@@ -1,6 +1,6 @@
-4
-change frame background color with button
+5
+define classes to create multiple frames and buttons
 
 Look at:
 app.py
-  15ff.
+  6ff.
