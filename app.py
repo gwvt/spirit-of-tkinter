@@ -8,6 +8,7 @@ canvas.grid()
 
 # call methods on canvas object to draw shape
 # pass coordinates x0, y0, x1, y1 of rectangle bounding the oval
+# no parent because the method is not creating a new widget
 circle = canvas.create_oval(50, 50, 350, 350)
 
 # call itemconfigure method on canvas object to configure the shape
