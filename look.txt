@@ -1,6 +1,10 @@
-6
-draw shape on canvas
+7
+add custom colors
+place canvas in label frame
+create radio buttons to color circle and background
 
 Look at:
 app.py
-  5ff.
+  4ff.
+  20ff.
+  108ff.
