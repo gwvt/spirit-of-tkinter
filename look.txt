@@ -8,3 +8,10 @@ This presentation will show how to build a desktop GUI with Tkinter, including h
   interact with user input:
     button, radio button, option menu, event binding, text entry
   add animation
+
+using features of Python such as:
+  classes
+  packages/modules
+  partials
+  built-in functions
+  *args
