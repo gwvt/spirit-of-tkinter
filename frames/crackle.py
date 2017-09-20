@@ -41,25 +41,33 @@ class CrackleFrame(tk.Frame):
     def toggle_crackling(self):
         if self.crackling is False:
             self.crackling = True
+
             self.start_button.configure(
                 highlightbackground=settings.colors['Black'],
                 fg=settings.colors['White'])
+
             square = self.canvas.create_rectangle(
                 self.square_side, self.square_side,
                 self.square_side * 2, self.square_side * 2,
                 fill=settings.colors['Black'])
+
+            main_app = self.master
             self.crackling_thread = Thread(
-                target=self.make_crackle, args=(square, 0, 8, True, True))
+                target=self.make_crackle, args=(
+                    square, 0, 8, True, True, self.master.queue))
+            self.crackling_thread.daemon = True
             self.crackling_thread.start()
         else:
             self.start_button.configure(
                 highlightbackground=settings.colors['White'],
                 fg=settings.colors['Black'])
+
             self.crackling = False
 
     # move square around perimiter of larger square pattern
     def make_crackle(
-            self, square, position, side_length, x_axis_changing, ascending):
+            self, square, position, side_length, x_axis_changing,
+            ascending, queue):
         if self.crackling is False:
             self.canvas.delete(square)
             return
@@ -67,32 +75,36 @@ class CrackleFrame(tk.Frame):
         if x_axis_changing is True and ascending is True:
             if position == side_length - 1:
                 self.canvas.move(square, 0, self.square_side)
-                return self.make_crackle(square, 1, side_length, False, True)
+                return self.make_crackle(
+                    square, 1, side_length, False, True, queue)
             else:
                 self.canvas.move(square, self.square_side, 0)
                 return self.make_crackle(
-                    square, position + 1, side_length, True, True)
+                    square, position + 1, side_length, True, True, queue)
         elif x_axis_changing is False and ascending is True:
             if position == side_length - 1:
                 self.canvas.move(square, -self.square_side, 0)
-                return self.make_crackle(square, 1, side_length, True, False)
+                return self.make_crackle(
+                    square, 1, side_length, True, False, queue)
             else:
                 self.canvas.move(square, 0, self.square_side)
                 return self.make_crackle(
-                    square, position + 1, side_length, False, True)
+                    square, position + 1, side_length, False, True, queue)
         elif x_axis_changing is True and ascending is False:
             if position == side_length - 1:
                 self.canvas.move(square, 0, -self.square_side)
-                return self.make_crackle(square, 1, side_length, False, False)
+                return self.make_crackle(
+                    square, 1, side_length, False, False, queue)
             else:
                 self.canvas.move(square, -self.square_side, 0)
                 return self.make_crackle(
-                    square, position + 1, side_length, True, False)
+                    square, position + 1, side_length, True, False, queue)
         elif x_axis_changing is False and ascending is False:
             if position == side_length - 1:
                 self.canvas.move(square, self.square_side, 0)
-                return self.make_crackle(square, 1, side_length, True, True)
+                return self.make_crackle(
+                    square, 1, side_length, True, True, queue)
             else:
                 self.canvas.move(square, 0, -self.square_side)
                 return self.make_crackle(
-                    square, position + 1, side_length, False, False)
+                    square, position + 1, side_length, False, False, queue)
