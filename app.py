@@ -1,9 +1,7 @@
 import tkinter as tk
 
-from frames.colors import ColorsFrame
-from frames.quit import QuitFrame
 # import pictures frame
-from frames.pictures import PicturesFrame
+from frames import ColorsFrame, QuitFrame, PicturesFrame
 
 
 class App(tk.Tk):
