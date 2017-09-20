@@ -1,4 +1,5 @@
 import tkinter as tk
+from functools import partial
 
 from settings import settings
 
@@ -17,7 +18,7 @@ class PicturesFrame(tk.Frame):
 
         self.select_image('Clear')
 
-    # pass select_image function to lambda with closure over path to
+    # pass select_image function to partial with closure over path to
     # each image file
     def select_image(self, text):
         if hasattr(self, 'image_label'):
@@ -35,6 +36,6 @@ class PicturesFrame(tk.Frame):
     def make_button(self, column, text):
         button = tk.Button(
             self, text=text,
-            command=lambda text=text: self.select_image(text))
+            command=partial(self.select_image, text))
         settings.button_standard_config(button)
         button.grid(row=1, column=column, sticky=tk.N+tk.S+tk.E+tk.W)
