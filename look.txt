@@ -8,6 +8,8 @@ app.py
   8ff.
   21ff.
 
+frames/__init__.py
+
 frames/colors.py
   * move ColorsFrame into module
 

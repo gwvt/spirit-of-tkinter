@@ -1,8 +1,7 @@
 import tkinter as tk
 
-# import frame classes from modules
-from frames.colors import ColorsFrame
-from frames.quit import QuitFrame
+# import frame classes from frames package
+from frames import ColorsFrame, QuitFrame
 
 
 # define class for main app
