@@ -35,7 +35,7 @@ class ColorsFrame(tk.LabelFrame):
         self.canvas_pad = self.canvas_side * .1
 
         # define method to create canvas
-        # follow convention of naming methods 'make_' to avoid collions
+        # follow convention of naming methods 'make_' to avoid collisions
         # with tkinter 'create_' methods
         self.canvas = self.make_canvas()
         self.canvas.grid(row=0, column=0)
