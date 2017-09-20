@@ -20,6 +20,9 @@ class ShapesFrame(tk.Frame):
         # a dictionary with keys shape, fill, outline,
         # and coordinates_descriptor for coordinates required to draw shape
         self.shape_features = self.set_shape_features(None, None, None, None)
+        # create current_shapes list to hold references to shapes
+        # currently on the canvas so they can be destroyed when new shapes
+        # are created
         self.current_shapes = []
 
         # draw shape_number of shapes
