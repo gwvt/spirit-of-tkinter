@@ -109,7 +109,7 @@ class ShapesFrame(tk.Frame):
             self.shape_features['coordinates_descriptor'])
 
     def select_shape(self, event):
-        self.make_shapes(*self.shape_selectors[str(event.char)])
+        self.make_shapes(*self.shape_selectors[event.char])
 
     def get_coordinates(self, index, descriptor):
         if descriptor is None:
