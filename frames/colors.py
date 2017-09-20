@@ -36,7 +36,7 @@ class ColorsFrame(tk.LabelFrame):
                 fill=settings.colors[color],
                 outline=settings.colors[color])
 
-        for index, key in enumerate(settings.colors.keys()):
+        for index, key in enumerate(settings.colors):
             self.make_button(
                 self.background_button_frame,
                 0,
