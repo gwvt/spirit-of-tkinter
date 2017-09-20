@@ -2,7 +2,7 @@ import tkinter as tk
 from functools import partial
 
 
-# define Settings class to be available across other classes/widgets
+# define Settings class to be available across multiple classes/widgets
 # define custom color palette
 class Settings():
     def __init__(self):
@@ -34,23 +34,23 @@ class ColorsFrame(tk.LabelFrame):
         self.canvas_side = 375
         self.canvas_pad = self.canvas_side * .1
 
-        # define method to create canvas
-        # follow convention of naming methods 'make_' to avoid collisions
-        # with tkinter 'create_' methods
+        # call method to make canvas
+        # follow convention of naming custom methods with 'make_'
+        # to avoid collisions with tkinter 'create_' methods
         self.canvas = self.make_canvas()
         self.canvas.grid(row=0, column=0)
 
-        # define method to draw circle
+        # call method to draw circle
         self.circle = self.make_circle('White')
 
-        # pass in strings 'Circle' and 'Background' to make_button_frame
-        # methods to generate label for inner label frames
+        # call method to make button frames
         self.circle_button_frame = self.make_button_frame('Circle')
         self.circle_button_frame.grid(row=0, column=1)
 
         self.background_button_frame = self.make_button_frame('Background')
         self.background_button_frame.grid(row=1, column=0)
 
+        # define plain functions to pass to make_button method
         def fill_background(color):
             self.canvas.configure(bg=settings.colors[color])
 
@@ -61,11 +61,11 @@ class ColorsFrame(tk.LabelFrame):
                 outline=settings.colors[color])
 
         # iterate over colors to generate buttons
-        # pass above functions to lambda to
+        # pass above functions to command option to
         # determine the target of the color change
         # place background buttons across columns,
         # circle buttons across rows
-        for index, key in enumerate(settings.colors.keys()):
+        for index, key in enumerate(settings.colors):
             self.make_button(
                 self.background_button_frame,
                 0,
@@ -106,20 +106,22 @@ class ColorsFrame(tk.LabelFrame):
             labelanchor='n', text=label, padx=5, pady=5)
         return button_frame
 
-    # use radio buttons with background color and no text nor 'indicatoron' to
+    # use radio buttons with background color but neither text nor indicator to
     # create a series of clickable colors
     def make_button(
             self, parent, row, column, color, command):
         button = tk.Radiobutton(
             parent, indicatoron=0, bd=0,
+            # use [functools.]partial to create closure over each
+            # iteration of the loop
             command=partial(command, color))
         button.configure(
+                    # width in characters, height in text lines
                     width=5,
                     height=2,
                     bg=settings.colors[color])
         button.grid(
-            row=row, column=column,
-            sticky=tk.N+tk.S+tk.E+tk.W)
+            row=row, column=column)
 
 
 # instantiate settings object
