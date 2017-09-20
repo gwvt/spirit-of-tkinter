@@ -1,4 +1,5 @@
 import tkinter as tk
+from functools import partial
 
 from settings import settings
 
@@ -29,6 +30,6 @@ class PicturesFrame(tk.Frame):
     def make_button(self, column, text):
         button = tk.Button(
             self, text=text,
-            command=lambda text=text: self.select_image(text))
+            command=partial(self.select_image, text))
         settings.button_standard_config(button)
         button.grid(row=1, column=column, sticky=tk.N+tk.S+tk.E+tk.W)
