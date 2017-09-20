@@ -112,6 +112,7 @@ class ShapesFrame(tk.Frame):
 
     # destroy existing shapes, set new shape features, and draw new shapes
     def select_shape(self, event):
+        # use * operator to unpack list into arguments
         self.make_shapes(*self.shape_selectors[event.char])
 
     # add more coordinate sets for circles/ovals, squares/rectangles,
