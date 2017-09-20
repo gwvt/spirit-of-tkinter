@@ -1,11 +1,8 @@
 import tkinter as tk
 
-from frames.colors import ColorsFrame
-from frames.quit import QuitFrame
-from frames.pictures import PicturesFrame
-from frames.shapes import ShapesFrame
 # import lyrics frame
-from frames.lyrics import LyricsFrame
+from frames import (ColorsFrame, QuitFrame, PicturesFrame, ShapesFrame,
+                    LyricsFrame)
 
 
 class App(tk.Tk):
