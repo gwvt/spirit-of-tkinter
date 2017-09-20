@@ -4,7 +4,6 @@ from frames import (ColorsFrame, QuitFrame, PicturesFrame, ShapesFrame,
                     LyricsFrame, CrackleFrame)
 
 
-
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
