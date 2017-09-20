@@ -16,6 +16,8 @@ class ShapesFrame(tk.Frame):
         self.shape_features = self.set_shape_features()
         self.current_shapes = []
 
+        # create property shape_selectors, a dictionary with key-value pairs
+        # to route key input 0-9
         self.shape_selectors = self.make_shape_selectors()
 
         self.shape_number_var = tk.IntVar()
