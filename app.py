@@ -7,7 +7,7 @@ def print_it():
     print('The world is, the world is -- love and life are deep.')
 
 
-# create a frame with app as parent
+# create a frame widget with app as parent
 frame = tk.Frame(app)
 
 # pass in options with configure method
