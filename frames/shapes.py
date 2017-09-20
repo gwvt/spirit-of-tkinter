@@ -8,15 +8,17 @@ class ShapesFrame(tk.Frame):
         super().__init__(parent)
         self.configure(padx=40)
 
-        # set values for canvas_width, canvas_height, shape_number,
-        # shape_width, shape_height, all in pixels
+        # set values for dimensions property, a dictionary with keys
+        # canvas_width, canvas_height, shape_number,
+        # shape_width, and shape_height, and values in pixels
         self.dimensions = self.set_dimensions(600, 200, 4, 100, 100)
 
         self.canvas = self.make_canvas()
         self.canvas.grid()
 
-        # initialize shape features of shape, fill, outline, and descriptor
-        # for coordinates required to draw shape
+        # create and initialize values for shape_features property,
+        # a dictionary with keys shape, fill, outline,
+        # and coordinates_descriptor for coordinates required to draw shape
         self.shape_features = self.set_shape_features(None, None, None, None)
         self.current_shapes = []
 
@@ -90,6 +92,8 @@ class ShapesFrame(tk.Frame):
         return coordinates[descriptor]
 
     # draw one shape when called by make_shapes method
+    # pass coordinates as *args since different shapes require different
+    # numbers of coordinates
     def make_one_shape(self, shape, fill, outline, *args):
         name_create_function = 'create_{}'.format(shape)
         shape = getattr(self.canvas, name_create_function)(
