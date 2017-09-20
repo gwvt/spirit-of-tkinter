@@ -26,11 +26,11 @@ class App(tk.Tk):
         # call method bind_events to bind events to callbacks
         self.bind_events()
 
-    # bind key input to method direct_key_events
+    # bind key input to callback method direct_key_events
     def bind_events(self):
         self.bind('<Key>', self.direct_key_events)
 
-    # call function to select shape on ShapesFrame instance
+    # call select_shape method on ShapesFrame instance
     # and pass event on the condition that the input is a number key
     def direct_key_events(self, event):
         if event.char.isdigit():
