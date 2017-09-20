@@ -18,12 +18,18 @@ class ShapesFrame(tk.Frame):
 
         self.make_shapes('polygon', 'White', 'Black', 'full_isosceles_up')
 
+        # create special Tkinter variable IntVar to hold value selected by
+        # option menu
+        self.shape_number_var = tk.IntVar()
+
         # add option menu
         self.shape_number_menu = self.make_shape_number_menu()
         self.shape_number_menu.grid(row=0, column=1)
 
     # change number of shapes, adjust dimensions, and redraw shapes
-    def change_shape_number(self, shape_number):
+    def change_shape_number(self, *args):
+        shape_number = self.shape_number_var.get()
+
         if shape_number == 2 or shape_number == 4:
             shape_width = 100
             shape_height = 100
@@ -46,10 +52,6 @@ class ShapesFrame(tk.Frame):
 
     # add option menu to select number of shapes
     def make_shape_number_menu(self):
-        # create special Tkinter variable IntVar to hold value selected by
-        # option menu
-        self.shape_number_var = tk.IntVar()
-
         # create option menu, define options, and associate IntVar
         shape_number_menu = tk.OptionMenu(
             self, self.shape_number_var, 2, 4, 8)
@@ -57,11 +59,10 @@ class ShapesFrame(tk.Frame):
         # set initial value
         self.shape_number_var.set(4)
 
-        # trace changes in IntVar and call lambda on change
+        # trace changes in IntVar and call method change_shape_number on change
         self.shape_number_var.trace(
             'w',
-            lambda *args: self.change_shape_number(
-                self.shape_number_var.get()))
+            self.change_shape_number)
 
         return shape_number_menu
 
