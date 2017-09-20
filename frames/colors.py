@@ -87,5 +87,4 @@ class ColorsFrame(tk.LabelFrame):
                     height=2,
                     bg=settings.colors[color])
         button.grid(
-            row=row, column=column,
-            sticky=tk.N+tk.S+tk.E+tk.W)
+            row=row, column=column)
