@@ -1,4 +1,5 @@
 import tkinter as tk
+from functools import partial
 
 from settings import settings
 
@@ -80,7 +81,7 @@ class ColorsFrame(tk.LabelFrame):
             self, parent, row, column, color, command):
         button = tk.Radiobutton(
             parent, indicatoron=0, bd=0,
-            command=lambda color=color: command(color))
+            command=partial(command, color))
         button.configure(
                     width=5,
                     height=2,
