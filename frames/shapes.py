@@ -16,6 +16,8 @@ class ShapesFrame(tk.Frame):
         self.shape_features = self.set_shape_features()
         self.current_shapes = []
 
+        self.shape_selectors = self.make_shape_selectors()
+
         self.shape_number_menu = self.make_shape_number_menu()
         self.shape_number_menu.grid(row=0, column=1)
 
@@ -53,6 +55,22 @@ class ShapesFrame(tk.Frame):
         }
         return features
 
+    def make_shape_selectors(self):
+        selectors = {
+            '1': ['oval', 'White', 'Black', 'outer_corners'],
+            '2': ['oval', 'White', 'Black', 'top_half'],
+            '3': ['oval', 'White', 'Black', 'bottom_half'],
+            '4': ['rectangle', 'White', 'Black', 'outer_corners'],
+            '5': ['rectangle', 'White', 'Black', 'top_half'],
+            '6': ['rectangle', 'White', 'Black', 'bottom_half'],
+            '7': ['polygon', 'White', 'Black', 'full_isosceles_up'],
+            '8': ['polygon', 'White', 'Black', 'top_half_isosceles_up'],
+            '9': ['polygon', 'White', 'Black', 'bottom_half_isosceles_down'],
+            '0': [None, None, None, None]
+        }
+
+        return selectors
+
     def make_shape_number_menu(self):
         self.shape_number_var = tk.IntVar()
 
@@ -89,28 +107,7 @@ class ShapesFrame(tk.Frame):
             self.shape_features['coordinates_descriptor'])
 
     def select_shape(self, event):
-        if event.char == '1':
-            self.make_shapes('oval', 'White', 'Black', 'outer_corners')
-        elif event.char == '2':
-            self.make_shapes('oval', 'White', 'Black', 'top_half')
-        elif event.char == '3':
-            self.make_shapes('oval', 'White', 'Black', 'bottom_half')
-        elif event.char == '4':
-            self.make_shapes('rectangle', 'White', 'Black', 'outer_corners')
-        elif event.char == '5':
-            self.make_shapes('rectangle', 'White', 'Black', 'top_half')
-        elif event.char == '6':
-            self.make_shapes('rectangle', 'White', 'Black', 'bottom_half')
-        elif event.char == '7':
-            self.make_shapes('polygon', 'White', 'Black', 'full_isosceles_up')
-        elif event.char == '8':
-            self.make_shapes(
-                'polygon', 'White', 'Black', 'top_half_isosceles_up')
-        elif event.char == '9':
-            self.make_shapes(
-                'polygon', 'White', 'Black', 'bottom_half_isosceles_down')
-        elif event.char == '0':
-            self.make_shapes(None, None, None, None)
+        self.make_shapes(*self.shape_selectors[str(event.char)])
 
     def get_coordinates(self, index, descriptor):
         if descriptor is None:
