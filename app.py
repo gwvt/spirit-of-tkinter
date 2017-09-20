@@ -1,4 +1,5 @@
 import tkinter as tk
+from queue import Queue
 
 # import CrackleFrame
 from frames import (ColorsFrame, QuitFrame, PicturesFrame, ShapesFrame,
@@ -9,6 +10,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.configure(padx=10, pady=10)
+        self.queue = Queue()
 
         self.shapes_frame = ShapesFrame(self)
         self.shapes_frame.grid(row=0, column=0)

@@ -26,12 +26,14 @@ class CrackleFrame(tk.Frame):
 
     # run animation on separate thread
     def start_moving(self):
+        main_app = self.master
         self.crackling_thread = Thread(
-            target=self.move_square)
+            target=self.move_square, args=[self.master.queue])
+        self.crackling_thread.daemon = True
         self.crackling_thread.start()
 
     # move square along x-axis or y-axis
-    def move_square(self):
+    def move_square(self, queue):
         for i in range(0, 7):
             sleep(.3)
             if i % 2 == 0:
