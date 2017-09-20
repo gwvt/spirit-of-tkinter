@@ -27,6 +27,7 @@ class PicturesFrame(tk.Frame):
         image_path = 'images/{}.gif'.format(text.lower())
         image = tk.PhotoImage(file=image_path)
 
+        # use Label widget as wrapper for image
         self.image_label = tk.Label(self, image=image)
         # re-assign image to image_label
         # see http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
