@@ -1,10 +1,7 @@
 import tkinter as tk
 
-from frames.colors import ColorsFrame
-from frames.quit import QuitFrame
-from frames.pictures import PicturesFrame
 # import shapes frame
-from frames.shapes import ShapesFrame
+from frames import ColorsFrame, QuitFrame, PicturesFrame, ShapesFrame
 
 
 class App(tk.Tk):
