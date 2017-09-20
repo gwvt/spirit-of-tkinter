@@ -18,6 +18,7 @@ class ShapesFrame(tk.Frame):
 
         self.shape_selectors = self.make_shape_selectors()
 
+        self.shape_number_var = tk.IntVar()
         self.shape_number_menu = self.make_shape_number_menu()
         self.shape_number_menu.grid(row=0, column=1)
 
@@ -80,12 +81,13 @@ class ShapesFrame(tk.Frame):
 
         self.shape_number_var.trace(
             'w',
-            lambda *args: self.change_shape_number(
-                self.shape_number_var.get()))
+            self.change_shape_number)
 
         return shape_number_menu
 
-    def change_shape_number(self, shape_number):
+    def change_shape_number(self, *args):
+        shape_number = self.shape_number_var.get()
+
         if shape_number == 2 or shape_number == 4:
             shape_width = 100
             shape_height = 100
