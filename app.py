@@ -27,6 +27,8 @@ class App(tk.Tk):
         self.bind_events()
 
     # bind key input to callback method direct_key_events
+    # a separate bind_events method will allow binding events to different
+    # callbacks based on conditions
     def bind_events(self):
         self.bind('<Key>', self.direct_key_events)
 
