@@ -48,7 +48,6 @@ class CrackleFrame(tk.Frame):
                 self.square_side * 2, self.square_side * 2,
                 fill=settings.colors['Black'])
 
-            main_app = self.master
             self.crackling_thread = Thread(
                 target=self.make_crackle, args=(
                     square, 0, 8, True, True, self.master.queue))
